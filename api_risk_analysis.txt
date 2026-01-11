@@ -1,0 +1,49 @@
+API Security Risk Analysis
+
+API Used:
+https://jsonplaceholder.typicode.com
+
+--------------------------------
+Test 1: Public Access
+
+Endpoint:
+https://jsonplaceholder.typicode.com/posts
+
+Observation:
+Data is accessible without any login or token.
+
+Risk:
+Anyone can read data without authentication.
+
+Severity:
+Low to Medium (Demo API, but risky in real systems)
+
+--------------------------------
+Test 2: ID Access (IDOR Type Risk)
+
+Endpoint:
+https://jsonplaceholder.typicode.com/users/{id}
+
+Observation:
+Changing the ID in URL returns different user data.
+
+Risk:
+Anyone can access any user data by changing ID.
+
+Severity:
+Medium
+
+--------------------------------
+Test 3: Rate Limiting
+
+Endpoint:
+https://jsonplaceholder.typicode.com/posts/1
+
+Observation:
+Multiple rapid requests were allowed without blocking.
+
+Risk:
+No visible rate limiting.
+
+Severity:
+Low for demo API, High for real systems
